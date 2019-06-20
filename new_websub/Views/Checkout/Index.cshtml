@@ -1,0 +1,22 @@
+﻿@using Microsoft.Extensions.Options
+@inject IOptions<StripeSettings> Stripe
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<h2>Checkout Page</h2>
+<p>This is Checkout page</p>
+
+<form asp-action="Charge">
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="@Stripe.Value.PublishableKey"
+            data-amount="@(ViewBag.PaymentAmount * 100)"
+            data-name="My Company"
+            data-description="10 rubberducks for 1$ each"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="en"
+            data-zip-code="false"
+            data-label="Pay @ViewBag.PaymentAmount $">
+    </script>
+</form>
+

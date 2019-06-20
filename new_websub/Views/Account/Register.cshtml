@@ -1,0 +1,153 @@
+﻿@model new_websub.ViewModels.RegisterFormVM
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>Register</h2>
+
+<hr />
+<div class="row">
+    <form asp-action="Register">
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-info">@ViewBag.Message</div>
+        }
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">First Name</label>
+                    <input asp-for="userAccount.FirstName" class="form-control" />
+                    <span asp-validation-for="userAccount.FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Last Name</label>
+                    <input asp-for="userAccount.LastName" class="form-control" />
+                    <span asp-validation-for="userAccount.LastName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">User Name</label>
+                    <input asp-for="userAccount.UserName" class="form-control" />
+                    <span asp-validation-for="userAccount.UserName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <input asp-for="userAccount.Email" class="form-control" />
+                    <span asp-validation-for="userAccount.Email" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Password</label>
+                    <input asp-for="userAccount.Password" class="form-control" />
+                    <span asp-validation-for="userAccount.Password" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Confirm Password</label>
+                    <input asp-for="userAccount.ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="userAccount.ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Company Name</label>
+                    <input asp-for="userAccount.CompanyName" class="form-control" />
+                    <span asp-validation-for="userAccount.CompanyName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Phone Number</label>
+                    <input asp-for="userAccount.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="userAccount.PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Address 1</label>
+                    <input asp-for="address.Address1" class="form-control" />
+                    <span asp-validation-for="address.Address1" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Address 2</label>
+                    <input asp-for="address.Address2" class="form-control" />
+                    
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">City</label>
+                    <input asp-for="address.City" class="form-control" />
+                    <span asp-validation-for="address.City" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">State</label>
+                    <input asp-for="address.State" class="form-control" />
+                    <span asp-validation-for="address.State" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Zip Code</label>
+                    <input asp-for="address.Zipcode" class="form-control" />
+                    <span asp-validation-for="address.Zipcode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Country</label>
+                    @*<input asp-for="address.Country" class="form-control" />*@
+                    <select asp-for="address.Country" class="form-control">
+                        <option value="US">United Status</option>
+                    </select>
+                    <span asp-validation-for="address.Country" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Register" class="btn btn-default btn-success" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

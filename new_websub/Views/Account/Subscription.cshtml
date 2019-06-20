@@ -1,0 +1,110 @@
+﻿@model new_websub.ViewModels.CustomerPaymentViewModel
+@{
+    ViewData["Title"] = "Add Plan";
+}
+<h2>Subscription Page</h2>
+<hr />
+<div class="container" style="margin-top: 20px">
+    <div class="row creditCardForm">
+        <div class="col-xs-8 class="payment">
+            <label style="color:red;">@Model.massage</label>
+            <form asp-action="Subscription" method="POST" role="form" id="planForm">
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Plan</h3>
+                        <hr />
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-4" style="float:left;">
+                            <label asp-for="Amount" class="col-form-label ">Amount</label>
+                            <select asp-for="Amount" class="form-control" placeholder="Amount">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4" style="float:left;">
+                            <label class="control-label Subtitle " asp-for="Currency">Currency</label>
+                            <select asp-for="Currency" class="wide form-control">
+                                <option value="usd">USD</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4" style="float:left;">
+                            <label asp-for="subsctype" class="col-form-label ">Interval</label>
+                            <select asp-for="subsctype" class="wide form-control">
+                                <option value="month">Monthly</option>
+                                @*<option value="year">Yearly</option>*@
+                            </select>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Card Information</h3>
+                        <hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-4" style="float:left;" id="card-number-field">
+                            <label asp-for="CardNumber" class="col-form-label ">Card Number</label>
+                            <input type="text" class="ccFormatMonitor form-control cc_type_unknown" asp-for="CardNumber" id="cardNumber" placeholder="Debit/Credit Card Number" data-blur-credit-card autocomplete="off">
+                            <p class="" style="margin-top:5px;margin-bottom:0px;margin-left:5px;"></p>
+                        </div>
+                        <div class="col-md-4" style="float:left;">
+                            <label asp-for="ExpiryMonth" class="col-form-label ">Expiry Month</label>
+                            <select asp-for="ExpiryMonth" class="wide form-control">
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4" style="float:left;">
+                            <label asp-for="ExpiryYear" class="col-form-label ">Expiry Year</label>
+                            <select asp-for="ExpiryYear" class="wide form-control">
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-4 CVV" style="float:left;">
+                            <label class="control-label Subtitle " asp-for="Cvc">Security Code</label>
+                            <input type="text" class="form-control" id="cvv" asp-for="Cvc" placeholder="CVV/CVC" maxlength="3" autocomplete="off">
+                        </div>
+                        <div class="col-md-4" style="float:left;">
+                            <label class="control-label Subtitle " asp-for="PaymentMethodTypes">Payment Method Types</label>
+                            <select asp-for="PaymentMethodTypes" class="wide form-control">
+                                <option value="card">card</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-4" style="float:left;">
+                            <button class="btn btn-primary" type="submit" style="margin-top: 20px">Pay start plan</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
